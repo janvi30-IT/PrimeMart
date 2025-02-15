@@ -54,28 +54,44 @@ namespace PrimeMart
             string strcon = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(strcon))
             {
-                string query = "INSERT INTO Producttbl (Category_id, Product_Name, Price, Stock, Description, ImagePath) " +
-                               "VALUES (@CategoryID, @ProductName, @Price, @Stock, @Description, @ImagePath)";
+                string query = "INSERT INTO Productstbl (Categories_id, Product_Name, Price, Stock, Description, ImagePath) " +
+                               "VALUES (@Categories_id, @ProductName, @Price, @Stock, @Description, @ImagePath)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@CategoryID", ddlCategory.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Categories_id", ddlCategory.SelectedValue);
                     cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text.Trim());
                     cmd.Parameters.AddWithValue("@Price", Convert.ToDecimal(txtPrice.Text));
                     cmd.Parameters.AddWithValue("@Stock", Convert.ToInt32(txtStock.Text));
                     cmd.Parameters.AddWithValue("@Description", txtDescription.Text.Trim());
 
-                    // Save uploaded image and store the path
                     if (fuProductImage.HasFile)
                     {
-                        string filePath = "~/ProductImages/" + fuProductImage.FileName;
-                        fuProductImage.SaveAs(Server.MapPath(filePath));
-                        cmd.Parameters.AddWithValue("@ImagePath", filePath);
+                        string folderPath = Server.MapPath("~/ProductImages/");
+
+                        // Check if the folder exists, if not, create it
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+
+                        // Generate a unique filename to avoid overwriting
+                        string fileName = Path.GetFileNameWithoutExtension(fuProductImage.FileName);
+                        string extension = Path.GetExtension(fuProductImage.FileName);
+                        string uniqueFileName = fileName + "_" + Guid.NewGuid().ToString("N") + extension;
+
+                        string filePath = Path.Combine(folderPath, uniqueFileName);
+                        fuProductImage.SaveAs(filePath);
+
+                        // Store the relative path in the database
+                        string dbFilePath = "~/ProductImages/" + uniqueFileName;
+                        cmd.Parameters.AddWithValue("@ImagePath", dbFilePath);
                     }
                     else
                     {
                         cmd.Parameters.AddWithValue("@ImagePath", DBNull.Value);
                     }
+
 
                     conn.Open();
                     cmd.ExecuteNonQuery();

@@ -14,7 +14,7 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family:'Candara',Georgia;
             background-color: #f8f9fa;
         }
         .header {
@@ -56,7 +56,7 @@
             font-weight: bold;
         }
         .sidebar a:hover {
-            background-color: #6D4C41;
+            background-color:chocolate;
             font-weight: bold;
             transform: scale(1.05);
             color: white;
@@ -95,7 +95,7 @@
             PrimeMart Admin
         </div>
         <div class="sidebar">
-            <a href="AdminDashboard.aspx"  target="mainFrame">🏠 Dashboard</a>
+            <a href="Dashboard.aspx"  target="mainFrame">🏠 Dashboard</a>
             <div class="menu-item">
                 <a href="#">📂 Categories</a>
                 <div class="submenu">
