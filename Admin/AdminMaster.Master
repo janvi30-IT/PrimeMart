@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="PrimeMart.AdminMaster" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family:'Candara',Georgia;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #4E342E;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+             position: sticky;
+  top: 0;
+  padding: 10px 16px;
+        }
+        .header .logo {
+            position: absolute;
+            left: 20px;
+        }
+        .header .logo img {
+            height: 60px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #FAF3E0;
+            color: black;
+            position: fixed;
+            height: 100vh;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .sidebar a:hover {
+            background-color:chocolate;
+            font-weight: bold;
+            transform: scale(1.05);
+            color: white;
+        }
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        .submenu {
+            display: none;
+            background-color: #5D4037;
+            padding-left: 20px;
+        }
+        .submenu a {
+            font-size: 16px;
+            font-weight: normal;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .submenu a:hover {
+            background-color: white;
+            color: #3E2723;
+        }
+        .menu-item:hover .submenu {
+            display: block;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="header">
+            <div class="logo"><img src="../Images/p4-removebg-preview.png" alt="Logo"></div>
+            PrimeMart Admin
+        </div>
+        <div class="sidebar">
+            <a href="Dashboard.aspx"  target="mainFrame">🏠 Dashboard</a>
+            <div class="menu-item">
+                <a href="#">📂 Categories</a>
+                <div class="submenu">
+                    <a href="ShowCategories.aspx">📜 Show Categories</a>
+<a href="Categories_form.aspx" target="mainFrame">➕ Add Categories</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#">🛍️ Products</a>
+                <div class="submenu">
+                    <a href="ShowProducts.aspx">📦 Show Products</a>
+               <a href="Product_Form.aspx" target="mainFrame">➕ Add Products</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#">👥 Customers</a>
+                <div class="submenu">
+                    <a href="ManageCustomers.aspx">🔧 Manage Customers</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#">📦 Orders</a>
+                <div class="submenu">
+                    <a href="ManageOrders.aspx">🛒 Manage Orders</a>
+                </div>
+            </div>
+        </div>
+   <div class="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+       
+
+        </div>
+
+    </form>
+
+</body>
+</html>

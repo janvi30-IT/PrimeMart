@@ -1,0 +1,502 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PrimeMart.master.cs" Inherits="PrimeMart.PrimeMart" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title><%: Page.Title %></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <link href="~/Styles/Site.css" rel="stylesheet" />
+     <style>
+        /* Navbar Styling */
+        .navbar-custom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #3a1f1f;
+            color: white;
+            padding: 10px 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Ensures alignment to the left */
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-left: 0px; /* Ensures the image is at the very edge */
+        }
+
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        .location select {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .delivery-info {
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .search-bar input {
+            padding: 6px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 300px; /* Increased width */
+            font-size: 14px;
+        }
+
+
+        .search-bar button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-bar button:hover {
+            background-color: #218838;
+        }
+
+        .nav-options {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-options a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .nav-options i {
+            font-size: 24px; /* Increased size */
+            color: white;
+            cursor: pointer;
+}
+
+
+        .nav-options a:hover {
+            text-decoration: underline;
+        }
+
+        .sub-navbar {
+            background-color: #f89651;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .sub-navbar a {
+            text-decoration: none;
+            color: white;
+             margin: 0 10px; /* Adds space around links */
+        padding: 5px 10px; /* Adds padding inside links */
+        display: inline-block; /* Ensures padding applies properly */
+            }
+
+        .sub-navbar a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+        /* Dropdown content container */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 100vw; /* Full-width dropdown */
+    padding: 20px;
+    left: 0;
+    top: 100%; /* Position below the button */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Dropdown grid */
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    gap: 20px;
+}
+
+/* Category styling */
+.category h5 {
+    margin: 0 0 10px;
+    color: #3a1f1f;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.category ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category ul li {
+    margin-bottom: 5px;
+}
+
+.category ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.category ul li a:hover {
+    color: #f89651;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.category-image {
+    width: 30%;
+    max-width: 50px; /* Adjust size as needed */
+    margin-bottom: 10px; /* Space between image and heading */
+    display: block;
+    margin-left:10px;
+    margin-right: auto;
+}
+
+
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    gap: 20px;
+    align-items: start; /* Align content to the top */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+      <div class="navbar-custom">
+        <!-- Logo Section -->
+        <div class="logo">
+        <img src="Images/p4-removebg-preview.png" alt="Prime Mart Logo">
+        </div>
+
+        <!-- Location Section -->
+        <div class="location">
+            <i class="bi bi-geo-alt"></i>
+            <span>395004</span>
+            <select id="locationSelect">
+                <option value="Surat">Surat</option>
+            </select>
+        </div>
+
+        <!-- Delivery Info Section -->
+        <div class="delivery-info">
+            <span>Earliest Home Delivery available</span><br>
+            <strong>Today 12:00 PM - 01:00 PM</strong>
+        </div>
+
+        <!-- Search Bar Section -->
+     <div class="search-bar">
+        <input type="text" placeholder="Search for Soups">
+        <button>Search</button>
+    </div>
+
+            <!-- Nav Options (Sign In, Cart, Notification) -->
+       <div class="nav-options">
+            <a href="SignUp_form.aspx">Sign In / Register</a>
+            <a href="#"><i class="bi bi-bell"></i></a>
+            <a href="#"><i class="bi bi-cart"></i></a>
+            <span>₹0</span>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+
+    <div class="sub-navbar">
+
+         <div class="dropdown">
+     <a href="#">All Categories</a>
+             <div class="dropdown-content">
+            <div class="dropdown-grid">
+                <!-- Grocery -->
+                <div class="category">
+        <img src="Images/All_categories/grocery-131022(1).jpg" alt="Grocery" class="category-image">
+                    <h5>GROCERY</h5>
+                    <ul>
+                        <li><a href="Dal.aspx">Dals</a></li>
+                        <li><a href="Pulses.aspx">Pulses</a></li>
+                        <li><a href="DryFruits.aspx">Dry Fruits</a></li>
+                        <li><a href="CookingOil.aspx">Cooking Oil</a></li>
+                        <li><a href="#">Ghee & Vanaspati</a></li>
+                         <li><a href="Flours_Grains.aspx">Flours & Grains</a></li>
+                         <li><a href="Rice_Products.aspx">Rice & Rice Products</a></li>
+                         <li><a href="Masala_Spices.aspx">Masala & Spices</a></li>
+                         <li><a href="Salt_Sugar_Jaggery.aspx">Salt/Sugar/Jaggery</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- Dairy & Beverages -->
+                <div class="category">
+        <img src="Images/All_categories/dairybeverages-131022.jpg" alt="Grocery" class="category-image">
+                    <h5>DAIRY & BEVERAGES</h5>
+                    <ul>
+                        <li><a href="Beverages.aspx">Beverages</a></li>
+                        <li><a href="Dairy.aspx">Dairy</a></li>
+
+                        
+                    </ul>
+                </div>
+
+  <!-- Packaged Food -->
+                <div class="category">
+        <img src="Images/All_categories/packaged-foods-131022.jpg" alt="Grocery" class="category-image">
+                    <h5>PACKAGED FOOD</h5>
+                    <ul>
+                       <li><a href="Biscuits_Cookies.aspx">Biscuits & Cookies</a></li>
+                        <li><a href="Breakfast_Cereals.aspx">Breakfast Cereals</a></li>
+                        <li><a href="Snacks_Farsans.aspx">Snacks & Farsans</a></li>
+                        <li><a href="Chocolates_Candies.aspx">Chocolates & Candies</a></li>
+                         <li><a href="Ketchup_Sauce.aspx">Ketchup & Sauce</a></li>
+                         
+
+                         
+
+                    </ul>
+                </div>
+
+                                <!-- Fruits & Vegetables -->
+                <div class="category">
+        <img src="Images/All_categories/fruits-vegetables-131022.jpg" alt="Grocery" class="category-image">
+    <h5>Fruits & Vegetables</h5>
+    <ul>
+      <li><a href="Fruits.aspx">Fruits</a></li>
+        <li><a href="Vegetables.aspx">Vegetables</a></li>
+        <li><a href="Frozen_Vegetables.aspx">Frozen Vegetables</a></li>
+        <li><a href="Exotic_Vegetables.aspx">Exotic Vegetables</a></li>
+         <li><a href="Exotic_Fruits.aspx">Exotic Fruits</a></li>
+
+
+    </ul>
+</div>
+
+
+  <!-- Home & Kitchen -->
+                <div class="category">
+        <img src="Images/All_categories/home-kitchen-131022.jpg" alt="Grocery" class="category-image">
+                    <h5>HOME & KITCHEN</h5>
+                    <ul>
+                        <li><a href="Detergent_FabricCare.aspx">Detergent & Fabric Care</a></li>
+                        <li><a href="Cleaners.aspx">Cleaners</a></li>
+                        <li><a href="Utensil_Cleaners.aspx">Utensil Cleaners</a></li>
+                        <li><a href="Freshener_Repellents.aspx">Freshener & Repellents</a></li>
+                        <li><a href="Furniture_Decor.aspx">Furniture & Decor</a></li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Baby Care -->
+         <div class="category">
+                <img src="Images/All_categories/baby-kids-131022.jpg" alt="Grocery" class="category-image">
+            <h5>Baby Care</h5>
+            <ul>
+                <li><a href="Diapers_Wipes.aspx">Diapers & Wipes</a></li>
+                <li><a href="BabySkin_HairCare.aspx">Baby Skin & Hair Care</a></li>
+                <li><a href="Activities_Games.aspx">Activities & Games</a></li>
+                <li><a href="Art_Craft.aspx">Art & Craft</a></li>
+            </ul>
+        </div>
+
+                 <!-- Home Furnishing & Decor -->
+        <div class="category">
+               <img src="Images/All_categories/bed-bath-040724.jpg" alt="Grocery" class="category-image">
+            <h5>Home Furnishing & Decor</h5>
+     
+            <ul>
+                <li><a href="Bedsheets_More.aspx">Bedsheets & More</a></li>
+                <li><a href="Bath_Range.aspx">Bath Range</a></li>
+                <li><a href="Home_Decor.aspx">Home Decor</a></li>
+                <li><a href="DoorMats_Carpets.aspx">Door Mats & Carpets</a></li>
+                <li><a href="TableCovers_More.aspx">Table Covers & More</a></li>
+            </ul>
+        </div>
+
+ <!--  Personal Care & Beauty -->
+             <div class="category">
+                   <img src="Images/All_categories/aesc-beauty-grooming-281124(1).jpg" alt="Grocery" class="category-image">
+                    <h5> Personal Care & Beauty</h5>
+     
+                    <ul>
+                        <li><a href="SkinCare.aspx">Skin Care</a></li>
+                        <li><a href="Makeup.aspx">Make-up</a></li>
+                        <li><a href="Bath_Body.aspx">Bath & Body</a></li>
+                        <li><a href="Hair_Care.aspx">Hair Care</a></li>
+                        <li><a href="PersonalHygiene.aspx">Personal Hygienee</a></li>
+
+                    </ul>
+              </div>
+
+                <!--  Books & Stationery -->
+           <div class="category">
+                <img src="Images/All_categories/aesc-books-240624.jpg" alt="Grocery" class="category-image">
+             <h5>Books & Stationery</h5>
+     
+           <ul>
+                 <li><a href="Stationery.aspx">Stationery</a></li>
+            </ul>
+           </div>
+
+                   <!--Footwear -->
+            <div class="category">
+                   <img src="Images/All_categories/footwearcore-131022.jpg" alt="Grocery" class="category-image">
+                <h5>Footwear</h5>
+
+                <ul>
+                      <li><a href="Mens_Footwear.aspx">Men's Footwear</a></li>
+                    <li><a href="WomenFootwear.aspx">Women's Footwear</a></li>
+                     
+                 </ul>
+             </div>
+
+
+
+
+                         <!--Electronics & Appliances -->
+          <div class="category">
+                 <img src="Images/All_categories/appliancescore-131022(1).jpg" alt="Grocery" class="category-image">
+                <h5>Electronics & Appliances</h5>
+
+                <ul>
+                      <li><a href="ElectricalNeeds.aspx">Electrical Needs</a></li>
+                    <li><a href="KitchenAppliances.aspx">Kitchen Appliances</a></li>
+                     <li><a href="HomeAppliances.aspx">Home Appliances</a></li>
+                    <li><a href="PersonalCareAppliances.aspx">Personal Care Appliances</a></li>
+                    <li><a href="ComputerMobileAccessories.aspx">Computer & Mobile Accessories</a></li>
+        
+                 </ul>
+           </div>
+
+                   <!--Bags & More -->
+            <div class="category">
+                   <img src="Images/All_categories/aesc-trolley-bags-handbags-more-140524.jpg" alt="Grocery" class="category-image">
+                  <h5>Bags & More</h5>
+                  <ul>
+                        <li><a href="Backpacks.aspx">Backpacks</a></li>
+                        
+        
+                   </ul>
+             </div>
+
+
+
+              <!--Home Utility & Organisers -->
+        <div class="category">
+               <img src="Images/All_categories/aesc-homeutilityandorganiser-081223.jpg" alt="Grocery" class="category-image">
+              <h5>Home Utility & Organisers</h5>
+    
+              <ul>
+                    <li><a href="RucksacksMore.aspx">Cleaning / Tools / Kits</a></li>
+                  <li><a href="GardeningEssentials.aspx">Gardening Essentials</a></li>
+                   <li><a href="BulbsLights.aspx">Bulbs & Lights</a></li>
+                  <li><a href="Batteries.aspx">Batteries</a></li>
+                  <li><a href="PetSupplies.aspx">Pet Supplies</a></li>
+                  
+        
+               </ul>
+        </div>
+ <!-- Shop By Room -->
+      <div class="category">
+             <img src="Images/All_categories/aesc-shop-by-home-170724.jpg" alt="Grocery" class="category-image">
+      <h5> Shop By Room</h5>
+      <ul>
+            <li><a href="LivingRoom.aspx">Living Room</a></li>
+          <li><a href="Bedroom.aspx">Bedroom</a></li>
+           <li><a href="Kitchen.aspx">Kitchen</a></li>
+          <li><a href="DiningRoom.aspx">Dining Room</a></li>
+          <li><a href="Bathroom.aspx">Bathroom</a></li>
+          
+       </ul>
+</div>
+
+
+                      <div class="category">
+             <img src="Images/All_categories/clothing-accessories-131022.jpg" alt="Grocery" class="category-image">
+      <h5>Clothing & Accessories</h5>
+      <ul>
+            <li><a href="MensClothing.aspx">Men's</a></li>
+          <li><a href="WomensClothing.aspx">Women's</a></li>
+           
+          
+       </ul>
+</div>
+                
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+         <a href="#">Ready To Cook</a>
+         <a href="#">Home Appliances</a>
+         <a href="#">Cookware</a>
+         <a href="#">Serveware</a>
+         <a href="#">Cleaners</a>
+         <a href="#">Detergent & Fabric Care</a>
+
+            </div>
+        
+
+
+    <form id="form1" runat="server">
+        
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        
+    </form>
+</body>
+</html>

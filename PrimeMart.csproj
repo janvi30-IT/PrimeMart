@@ -1,0 +1,815 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D716976F-40E2-4385-9648-AA7D410B30EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrimeMart</RootNamespace>
+    <AssemblyName>PrimeMart</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44316</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Activities_Games.aspx" />
+    <Content Include="Admin\AdminDashboard.aspx" />
+    <Content Include="Admin\Categories_form.aspx" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\Product_Form.aspx" />
+    <Content Include="App_Data\PrimeMartDB.mdf" />
+    <Content Include="App_Data\PrimeMartDB_log.ldf">
+      <DependentUpon>PrimeMartDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="Art_Craft.aspx" />
+    <Content Include="BabySkin_HairCare.aspx" />
+    <Content Include="Backpacks.aspx" />
+    <Content Include="Bathroom.aspx" />
+    <Content Include="Bath_Body.aspx" />
+    <Content Include="Bath_Range.aspx" />
+    <Content Include="Batteries.aspx" />
+    <Content Include="Bedroom.aspx" />
+    <Content Include="Bedsheets_More.aspx" />
+    <Content Include="Beverages.aspx" />
+    <Content Include="Biscuits_Cookies.aspx" />
+    <Content Include="Breakfast_Cereals.aspx" />
+    <Content Include="BulbsLights.aspx" />
+    <Content Include="Chocolates_Candies.aspx" />
+    <Content Include="Cleaners.aspx" />
+    <Content Include="ComputerMobileAccessories.aspx" />
+    <Content Include="CookingOil.aspx" />
+    <Content Include="Dairy.aspx" />
+    <Content Include="Detergent_FabricCare.aspx" />
+    <Content Include="Diapers_Wipes.aspx" />
+    <Content Include="DiningRoom.aspx" />
+    <Content Include="DoorMats_Carpets.aspx" />
+    <Content Include="DryFruits.aspx" />
+    <Content Include="ElectricalNeeds.aspx" />
+    <Content Include="Exotic_Fruits.aspx" />
+    <Content Include="Exotic_Vegetables.aspx" />
+    <Content Include="Flours_Grains.aspx" />
+    <Content Include="Freshener_Repellents.aspx" />
+    <Content Include="Frozen_Vegetables.aspx" />
+    <Content Include="Fruits.aspx" />
+    <Content Include="Furniture_Decor.aspx" />
+    <Content Include="GardeningEssentials.aspx" />
+    <Content Include="Hair_Care.aspx" />
+    <Content Include="HomeAppliances.aspx" />
+    <Content Include="HomePage.aspx" />
+    <Content Include="Home_Decor.aspx" />
+    <Content Include="Images\3cw_breakfast.jpg" />
+    <Content Include="Images\3cw_homedecor.jpg" />
+    <Content Include="Images\3cw_stationery.jpg" />
+    <Content Include="Images\50%25discount.png" />
+    <Content Include="Images\50%25off.png" />
+    <Content Include="Images\All_categories\aesc-beauty-grooming-281124%281%29.jpg" />
+    <Content Include="Images\All_categories\aesc-books-240624.jpg" />
+    <Content Include="Images\All_categories\aesc-homeutilityandorganiser-081223.jpg" />
+    <Content Include="Images\All_categories\aesc-shop-by-home-170724.jpg" />
+    <Content Include="Images\All_categories\aesc-trolley-bags-handbags-more-140524.jpg" />
+    <Content Include="Images\All_categories\appliancescore-131022%281%29.jpg" />
+    <Content Include="Images\All_categories\baby-kids-131022.jpg" />
+    <Content Include="Images\All_categories\bed-bath-040724.jpg" />
+    <Content Include="Images\All_categories\clothing-accessories-131022.jpg" />
+    <Content Include="Images\All_categories\dairybeverages-131022.jpg" />
+    <Content Include="Images\All_categories\footwearcore-131022.jpg" />
+    <Content Include="Images\All_categories\fruits-vegetables-131022.jpg" />
+    <Content Include="Images\All_categories\grocery-131022%281%29.jpg" />
+    <Content Include="Images\All_categories\home-kitchen-131022.jpg" />
+    <Content Include="Images\All_categories\packaged-foods-131022.jpg" />
+    <Content Include="Images\All_categories\specialscore-131022.jpg" />
+    <Content Include="Images\All_categories\stationary-131022.jpg" />
+    <Content Include="Images\applience.jpg" />
+    <Content Include="Images\B2.png" />
+    <Content Include="Images\B22.png" />
+    <Content Include="Images\baby_care.jpg" />
+    <Content Include="Images\breakfast.jpg" />
+    <Content Include="Images\Cabbage.jpg" />
+    <Content Include="Images\Carrot.jpg" />
+    <Content Include="Images\chinese_cornor.jpg" />
+    <Content Include="Images\cooker.jpg" />
+    <Content Include="Images\dog_cat.jpg" />
+    <Content Include="Images\fruitbasket.jpg" />
+    <Content Include="Images\Grocery\CookingOil\CoconutOil.jpg" />
+    <Content Include="Images\Grocery\CookingOil\GroundnutOil.jpg" />
+    <Content Include="Images\Grocery\CookingOil\MustardOil.jpg" />
+    <Content Include="Images\Grocery\CookingOil\OliveOil.jpg" />
+    <Content Include="Images\Grocery\CookingOil\SoybeanOil.jpg" />
+    <Content Include="Images\Grocery\CookingOil\SunflowerOil.jpg" />
+    <Content Include="Images\Grocery\Daal\Arhar_dal.jpg" />
+    <Content Include="Images\Grocery\Daal\chana_dal.jpeg" />
+    <Content Include="Images\Grocery\Daal\masoor_dal.jpeg" />
+    <Content Include="Images\Grocery\Daal\moong-dal.png" />
+    <Content Include="Images\Grocery\Daal\toor_dal.jpeg" />
+    <Content Include="Images\Grocery\Daal\urad_dal.jpeg" />
+    <Content Include="Images\Grocery\DryFruits\Almonds.jpg" />
+    <Content Include="Images\Grocery\DryFruits\Cashews.jpg" />
+    <Content Include="Images\Grocery\DryFruits\Dates.jpg" />
+    <Content Include="Images\Grocery\DryFruits\Pistachios.jpg" />
+    <Content Include="Images\Grocery\DryFruits\Raisins.jpg" />
+    <Content Include="Images\Grocery\DryFruits\Walnuts.jpeg" />
+    <Content Include="Images\Grocery\FloursGrains\BajraFlour.jpg" />
+    <Content Include="Images\Grocery\FloursGrains\Besan.jpg" />
+    <Content Include="Images\Grocery\FloursGrains\CornFlour.jpg" />
+    <Content Include="Images\Grocery\FloursGrains\Maida.jpeg" />
+    <Content Include="Images\Grocery\FloursGrains\RagiFlour.jpeg" />
+    <Content Include="Images\Grocery\FloursGrains\WheatFlour.jpg" />
+    <Content Include="Images\Grocery\Pulses\Black_Chana.jpg" />
+    <Content Include="Images\Grocery\Pulses\Green_Peas.jpg" />
+    <Content Include="Images\Grocery\Pulses\kabuli_chana.jpeg" />
+    <Content Include="Images\Grocery\Pulses\Masoor_Whole.jpg" />
+    <Content Include="Images\Grocery\Pulses\Rajma_Red.jpeg" />
+    <Content Include="Images\Grocery\Pulses\White_Peas.jpeg" />
+    <Content Include="Images\Grocery\Rice\basmati_rice.jpeg" />
+    <Content Include="Images\Grocery\Rice\brown_rice.jpg" />
+    <Content Include="Images\Grocery\Rice\idli_rice.jpeg" />
+    <Content Include="Images\Grocery\Rice\poha.jpg" />
+    <Content Include="Images\Grocery\Rice\rice_flour.jpeg" />
+    <Content Include="Images\Grocery\Rice\sona_masoori.jpg" />
+    <Content Include="Images\Grocery\SaltSugar\brown_sugar.jpeg" />
+    <Content Include="Images\Grocery\SaltSugar\jaggery_blocks.jpg" />
+    <Content Include="Images\Grocery\SaltSugar\jaggery_powder.jpg" />
+    <Content Include="Images\Grocery\SaltSugar\rock_salt.jpg" />
+    <Content Include="Images\Grocery\SaltSugar\sea_salt.jpg" />
+    <Content Include="Images\Grocery\SaltSugar\sugar.jpg" />
+    <Content Include="Images\Grocery\Spices\black_pepper.jpg" />
+    <Content Include="Images\Grocery\Spices\coriander_powder.jpg" />
+    <Content Include="Images\Grocery\Spices\cumin_seeds.jpeg" />
+    <Content Include="Images\Grocery\Spices\garam_masala.jpeg" />
+    <Content Include="Images\Grocery\Spices\red_chilli_powder.jpg" />
+    <Content Include="Images\Grocery\Spices\turmeric_powder.jpeg" />
+    <Content Include="Images\icecreams.jpg" />
+    <Content Include="Images\ice_cremas.jpg" />
+    <Content Include="Images\Kitchen.png" />
+    <Content Include="Images\Onion.jpg" />
+    <Content Include="Images\p4-removebg-preview.png" />
+    <Content Include="Images\popularCategories\bath-unity.png" />
+    <Content Include="Images\popularCategories\cleaners.png" />
+    <Content Include="Images\popularCategories\dairy.png" />
+    <Content Include="Images\popularCategories\grocery.jpg" />
+    <Content Include="Images\popularCategories\poojaneeds.png" />
+    <Content Include="Images\popularCategories\shampoos.png" />
+    <Content Include="Images\popularCategories\soaps.png" />
+    <Content Include="Images\popularCategories\softdrinks.png" />
+    <Content Include="Images\popularCategories\tea.png" />
+    <Content Include="Images\popularCategories\toothpaste.png" />
+    <Content Include="Images\popularCategories\towels.png" />
+    <Content Include="Images\Potato.jpg" />
+    <Content Include="Images\signup-background.jpg" />
+    <Content Include="Images\Spinach.jpg" />
+    <Content Include="Images\summer.png" />
+    <Content Include="Images\Tomato.jpg" />
+    <Content Include="Images\toy-shopping-cart-with-boxes-credit-card-with-copy-space_339191-197.jpg" />
+    <Content Include="Images\vegetables.jpg" />
+    <Content Include="Images\Women%27s cornor.png" />
+    <Content Include="Ketchup_Sauce.aspx" />
+    <Content Include="Kitchen.aspx" />
+    <Content Include="KitchenAppliances.aspx" />
+    <Content Include="LivingRoom.aspx" />
+    <Content Include="Makeup.aspx" />
+    <Content Include="Masala_Spices.aspx" />
+    <Content Include="MensClothing.aspx" />
+    <Content Include="Mens_Footwear.aspx" />
+    <Content Include="PersonalCareAppliances.aspx" />
+    <Content Include="PersonalHygiene.aspx" />
+    <Content Include="PetSupplies.aspx" />
+    <Content Include="PrimeMartDB.mdf" />
+    <Content Include="Pulses.aspx" />
+    <Content Include="Rice_Products.aspx" />
+    <Content Include="RucksacksMore.aspx" />
+    <Content Include="Salt_Sugar_Jaggery.aspx" />
+    <Content Include="SignUp_Form.aspx" />
+    <Content Include="SkinCare.aspx" />
+    <Content Include="Snacks_Farsans.aspx" />
+    <Content Include="Stationery.aspx" />
+    <Content Include="TableCovers_More.aspx" />
+    <Content Include="Utensil_Cleaners.aspx" />
+    <Content Include="Vegetables.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Login.aspx" />
+    <Content Include="Grocery.aspx" />
+    <Content Include="Dal.aspx" />
+    <Content Include="WomenFootwear.aspx" />
+    <Content Include="WomensClothing.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activities_Games.aspx.cs">
+      <DependentUpon>Activities_Games.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activities_Games.aspx.designer.cs">
+      <DependentUpon>Activities_Games.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.aspx.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminDashboard.aspx.designer.cs">
+      <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.Master.designer.cs">
+      <DependentUpon>AdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Categories_form.aspx.cs">
+      <DependentUpon>Categories_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Categories_form.aspx.designer.cs">
+      <DependentUpon>Categories_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Product_Form.aspx.cs">
+      <DependentUpon>Product_Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Product_Form.aspx.designer.cs">
+      <DependentUpon>Product_Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Art_Craft.aspx.cs">
+      <DependentUpon>Art_Craft.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Art_Craft.aspx.designer.cs">
+      <DependentUpon>Art_Craft.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BabySkin_HairCare.aspx.cs">
+      <DependentUpon>BabySkin_HairCare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BabySkin_HairCare.aspx.designer.cs">
+      <DependentUpon>BabySkin_HairCare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Backpacks.aspx.cs">
+      <DependentUpon>Backpacks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backpacks.aspx.designer.cs">
+      <DependentUpon>Backpacks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bathroom.aspx.cs">
+      <DependentUpon>Bathroom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bathroom.aspx.designer.cs">
+      <DependentUpon>Bathroom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bath_Body.aspx.cs">
+      <DependentUpon>Bath_Body.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bath_Body.aspx.designer.cs">
+      <DependentUpon>Bath_Body.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bath_Range.aspx.cs">
+      <DependentUpon>Bath_Range.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bath_Range.aspx.designer.cs">
+      <DependentUpon>Bath_Range.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Batteries.aspx.cs">
+      <DependentUpon>Batteries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Batteries.aspx.designer.cs">
+      <DependentUpon>Batteries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bedroom.aspx.cs">
+      <DependentUpon>Bedroom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bedroom.aspx.designer.cs">
+      <DependentUpon>Bedroom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bedsheets_More.aspx.cs">
+      <DependentUpon>Bedsheets_More.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bedsheets_More.aspx.designer.cs">
+      <DependentUpon>Bedsheets_More.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Beverages.aspx.cs">
+      <DependentUpon>Beverages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Beverages.aspx.designer.cs">
+      <DependentUpon>Beverages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Biscuits_Cookies.aspx.cs">
+      <DependentUpon>Biscuits_Cookies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Biscuits_Cookies.aspx.designer.cs">
+      <DependentUpon>Biscuits_Cookies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Breakfast_Cereals.aspx.cs">
+      <DependentUpon>Breakfast_Cereals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Breakfast_Cereals.aspx.designer.cs">
+      <DependentUpon>Breakfast_Cereals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BulbsLights.aspx.cs">
+      <DependentUpon>BulbsLights.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BulbsLights.aspx.designer.cs">
+      <DependentUpon>BulbsLights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chocolates_Candies.aspx.cs">
+      <DependentUpon>Chocolates_Candies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chocolates_Candies.aspx.designer.cs">
+      <DependentUpon>Chocolates_Candies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cleaners.aspx.cs">
+      <DependentUpon>Cleaners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cleaners.aspx.designer.cs">
+      <DependentUpon>Cleaners.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerMobileAccessories.aspx.cs">
+      <DependentUpon>ComputerMobileAccessories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComputerMobileAccessories.aspx.designer.cs">
+      <DependentUpon>ComputerMobileAccessories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CookingOil.aspx.cs">
+      <DependentUpon>CookingOil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CookingOil.aspx.designer.cs">
+      <DependentUpon>CookingOil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dairy.aspx.cs">
+      <DependentUpon>Dairy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dairy.aspx.designer.cs">
+      <DependentUpon>Dairy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detergent_FabricCare.aspx.cs">
+      <DependentUpon>Detergent_FabricCare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detergent_FabricCare.aspx.designer.cs">
+      <DependentUpon>Detergent_FabricCare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Diapers_Wipes.aspx.cs">
+      <DependentUpon>Diapers_Wipes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Diapers_Wipes.aspx.designer.cs">
+      <DependentUpon>Diapers_Wipes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DiningRoom.aspx.cs">
+      <DependentUpon>DiningRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DiningRoom.aspx.designer.cs">
+      <DependentUpon>DiningRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoorMats_Carpets.aspx.cs">
+      <DependentUpon>DoorMats_Carpets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoorMats_Carpets.aspx.designer.cs">
+      <DependentUpon>DoorMats_Carpets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DryFruits.aspx.cs">
+      <DependentUpon>DryFruits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DryFruits.aspx.designer.cs">
+      <DependentUpon>DryFruits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricalNeeds.aspx.cs">
+      <DependentUpon>ElectricalNeeds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ElectricalNeeds.aspx.designer.cs">
+      <DependentUpon>ElectricalNeeds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exotic_Fruits.aspx.cs">
+      <DependentUpon>Exotic_Fruits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exotic_Fruits.aspx.designer.cs">
+      <DependentUpon>Exotic_Fruits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exotic_Vegetables.aspx.cs">
+      <DependentUpon>Exotic_Vegetables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exotic_Vegetables.aspx.designer.cs">
+      <DependentUpon>Exotic_Vegetables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Flours_Grains.aspx.cs">
+      <DependentUpon>Flours_Grains.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Flours_Grains.aspx.designer.cs">
+      <DependentUpon>Flours_Grains.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Freshener_Repellents.aspx.cs">
+      <DependentUpon>Freshener_Repellents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Freshener_Repellents.aspx.designer.cs">
+      <DependentUpon>Freshener_Repellents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Frozen_Vegetables.aspx.cs">
+      <DependentUpon>Frozen_Vegetables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Frozen_Vegetables.aspx.designer.cs">
+      <DependentUpon>Frozen_Vegetables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fruits.aspx.cs">
+      <DependentUpon>Fruits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fruits.aspx.designer.cs">
+      <DependentUpon>Fruits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Furniture_Decor.aspx.cs">
+      <DependentUpon>Furniture_Decor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Furniture_Decor.aspx.designer.cs">
+      <DependentUpon>Furniture_Decor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GardeningEssentials.aspx.cs">
+      <DependentUpon>GardeningEssentials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GardeningEssentials.aspx.designer.cs">
+      <DependentUpon>GardeningEssentials.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Hair_Care.aspx.cs">
+      <DependentUpon>Hair_Care.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hair_Care.aspx.designer.cs">
+      <DependentUpon>Hair_Care.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeAppliances.aspx.cs">
+      <DependentUpon>HomeAppliances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeAppliances.aspx.designer.cs">
+      <DependentUpon>HomeAppliances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home_Decor.aspx.cs">
+      <DependentUpon>Home_Decor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home_Decor.aspx.designer.cs">
+      <DependentUpon>Home_Decor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ketchup_Sauce.aspx.cs">
+      <DependentUpon>Ketchup_Sauce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ketchup_Sauce.aspx.designer.cs">
+      <DependentUpon>Ketchup_Sauce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen.aspx.cs">
+      <DependentUpon>Kitchen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kitchen.aspx.designer.cs">
+      <DependentUpon>Kitchen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KitchenAppliances.aspx.cs">
+      <DependentUpon>KitchenAppliances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KitchenAppliances.aspx.designer.cs">
+      <DependentUpon>KitchenAppliances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LivingRoom.aspx.cs">
+      <DependentUpon>LivingRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LivingRoom.aspx.designer.cs">
+      <DependentUpon>LivingRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Makeup.aspx.cs">
+      <DependentUpon>Makeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Makeup.aspx.designer.cs">
+      <DependentUpon>Makeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masala_Spices.aspx.cs">
+      <DependentUpon>Masala_Spices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masala_Spices.aspx.designer.cs">
+      <DependentUpon>Masala_Spices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MensClothing.aspx.cs">
+      <DependentUpon>MensClothing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MensClothing.aspx.designer.cs">
+      <DependentUpon>MensClothing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mens_Footwear.aspx.cs">
+      <DependentUpon>Mens_Footwear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mens_Footwear.aspx.designer.cs">
+      <DependentUpon>Mens_Footwear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalCareAppliances.aspx.cs">
+      <DependentUpon>PersonalCareAppliances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonalCareAppliances.aspx.designer.cs">
+      <DependentUpon>PersonalCareAppliances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalHygiene.aspx.cs">
+      <DependentUpon>PersonalHygiene.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PersonalHygiene.aspx.designer.cs">
+      <DependentUpon>PersonalHygiene.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PetSupplies.aspx.cs">
+      <DependentUpon>PetSupplies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PetSupplies.aspx.designer.cs">
+      <DependentUpon>PetSupplies.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrimeMart.Master.cs">
+      <DependentUpon>PrimeMart.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrimeMart.Master.designer.cs">
+      <DependentUpon>PrimeMart.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pulses.aspx.cs">
+      <DependentUpon>Pulses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pulses.aspx.designer.cs">
+      <DependentUpon>Pulses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rice_Products.aspx.cs">
+      <DependentUpon>Rice_Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rice_Products.aspx.designer.cs">
+      <DependentUpon>Rice_Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RucksacksMore.aspx.cs">
+      <DependentUpon>RucksacksMore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RucksacksMore.aspx.designer.cs">
+      <DependentUpon>RucksacksMore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Salt_Sugar_Jaggery.aspx.cs">
+      <DependentUpon>Salt_Sugar_Jaggery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Salt_Sugar_Jaggery.aspx.designer.cs">
+      <DependentUpon>Salt_Sugar_Jaggery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignUp_Form.aspx.cs">
+      <DependentUpon>SignUp_Form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp_Form.aspx.designer.cs">
+      <DependentUpon>SignUp_Form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grocery.aspx.cs">
+      <DependentUpon>Grocery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grocery.aspx.designer.cs">
+      <DependentUpon>Grocery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dal.aspx.cs">
+      <DependentUpon>Dal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dal.aspx.designer.cs">
+      <DependentUpon>Dal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkinCare.aspx.cs">
+      <DependentUpon>SkinCare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkinCare.aspx.designer.cs">
+      <DependentUpon>SkinCare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Snacks_Farsans.aspx.cs">
+      <DependentUpon>Snacks_Farsans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Snacks_Farsans.aspx.designer.cs">
+      <DependentUpon>Snacks_Farsans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Stationery.aspx.cs">
+      <DependentUpon>Stationery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Stationery.aspx.designer.cs">
+      <DependentUpon>Stationery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TableCovers_More.aspx.cs">
+      <DependentUpon>TableCovers_More.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TableCovers_More.aspx.designer.cs">
+      <DependentUpon>TableCovers_More.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utensil_Cleaners.aspx.cs">
+      <DependentUpon>Utensil_Cleaners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Utensil_Cleaners.aspx.designer.cs">
+      <DependentUpon>Utensil_Cleaners.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vegetables.aspx.cs">
+      <DependentUpon>Vegetables.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vegetables.aspx.designer.cs">
+      <DependentUpon>Vegetables.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WomenFootwear.aspx.cs">
+      <DependentUpon>WomenFootwear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WomenFootwear.aspx.designer.cs">
+      <DependentUpon>WomenFootwear.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WomensClothing.aspx.cs">
+      <DependentUpon>WomensClothing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WomensClothing.aspx.designer.cs">
+      <DependentUpon>WomensClothing.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\AdminMaster.Master" />
+    <None Include="packages.config" />
+    <Content Include="PrimeMart.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55785</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44316/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
