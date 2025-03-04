@@ -94,6 +94,7 @@
     <Content Include="Admin\AdminDashboard.aspx" />
     <Content Include="Admin\Categories_form.aspx" />
     <Content Include="Admin\Product_form.aspx" />
+    <Content Include="Admin\ShowProduct.aspx" />
     <Content Include="App_Data\PrimeMartDB.mdf" />
     <Content Include="App_Data\PrimeMartDB_log.ldf">
       <DependentUpon>PrimeMartDB.mdf</DependentUpon>
@@ -305,6 +306,13 @@
     </Compile>
     <Compile Include="Admin\Product_form.aspx.designer.cs">
       <DependentUpon>Product_form.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ShowProduct.aspx.cs">
+      <DependentUpon>ShowProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ShowProduct.aspx.designer.cs">
+      <DependentUpon>ShowProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Art_Craft.aspx.cs">
       <DependentUpon>Art_Craft.aspx</DependentUpon>
