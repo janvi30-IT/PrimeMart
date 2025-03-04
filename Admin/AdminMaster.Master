@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="PrimeMart.AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="PrimeMart.Admin.AdminMaster" %>
+
 
 
 <!DOCTYPE html>
@@ -91,7 +92,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="header">
-            <div class="logo"><img src="../Images/p4-removebg-preview.png" alt="Logo"></div>
+            <div class="logo"><img src="../images/logo-removebg-preview.png" alt="Logo"></div>
             PrimeMart Admin
         </div>
         <div class="sidebar">
@@ -133,3 +134,4 @@
 
 </body>
 </html>
+

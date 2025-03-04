@@ -8,9 +8,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PrimeMart
+namespace PrimeMart.Admin
 {
-    public partial class Product_Form : System.Web.UI.Page
+    public partial class Product_form : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

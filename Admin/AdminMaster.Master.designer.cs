@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrimeMart
+namespace PrimeMart.Admin
 {
 
 

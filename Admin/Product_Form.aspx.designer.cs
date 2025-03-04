@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrimeMart
+namespace PrimeMart.Admin
 {
 
 
-    public partial class Product_Form
+    public partial class Product_form
     {
 
         /// <summary>
