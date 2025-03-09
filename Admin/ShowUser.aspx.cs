@@ -1,54 +1,89 @@
-﻿//using System;
-//using System.Data;
-//using System.Data.SqlClient;
-//using System.Web.UI.WebControls;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Web.UI.WebControls;
 
-//namespace YourNamespace
-//{
-//    public partial class ShowUser : System.Web.UI.Page
-//    {
-//        protected void Page_Load(object sender, EventArgs e)
-//        {
-//            if (!IsPostBack)
-//            {
-//                BindGridView();
-//            }
-//        }
+namespace PrimeMart.Admin
+{
+    public partial class ShowUser : System.Web.UI.Page
+    {
+        string strcon = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
 
-//        private void BindGridView()
-//        {
-//            // Connection string to your database
-//            string connectionString = "YourConnectionStringHere";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                BindGridView();
+            }
+        }
 
-//            // SQL query to fetch data
-//            string query = "SELECT First_Name, Last_Name, Username, Phone_Number, Address, State, City, Postal_Code FROM Usertbl";
+        private void BindGridView()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(strcon))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT Username, First_Name, Last_Name, Role, IsActive FROM Usertbl", con))
+                    {
+                        con.Open();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        GridViewUsers.DataSource = dt;
+                        GridViewUsers.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = "Error: " + ex.Message;
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
+        }
 
-//            // Create a connection and command
-//            using (SqlConnection connection = new SqlConnection(connectionString))
-//            {
-//                using (SqlCommand command = new SqlCommand(query, connection))
-//                {
-//                    try
-//                    {
-//                        // Open the connection
-//                        connection.Open();
+        protected void GridViewUsers_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridViewUsers.EditIndex = e.NewEditIndex;
+            BindGridView();
+        }
 
-//                        // Execute the query and fetch data into a DataTable
-//                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
-//                        DataTable dataTable = new DataTable();
-//                        dataAdapter.Fill(dataTable);
+        protected void GridViewUsers_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            try
+            {
+                string username = GridViewUsers.DataKeys[e.RowIndex].Value.ToString();
+                string role = (GridViewUsers.Rows[e.RowIndex].FindControl("ddlRole") as DropDownList).SelectedValue;
+                bool isActive = (GridViewUsers.Rows[e.RowIndex].FindControl("chkStatus") as CheckBox).Checked;
 
-//                        // Bind the DataTable to the GridView
-//                        GridView1.DataSource = dataTable;
-//                        GridView1.DataBind();
-//                    }
-//                    catch (Exception ex)
-//                    {
-//                        // Handle exceptions (e.g., log or display an error message)
-//                        Response.Write("An error occurred: " + ex.Message);
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}
+                using (SqlConnection con = new SqlConnection(strcon))
+                {
+                    using (SqlCommand cmd = new SqlCommand("UPDATE Usertbl SET Role = @Role, IsActive = @IsActive WHERE Username = @Username", con))
+                    {
+                        cmd.Parameters.AddWithValue("@Role", role);
+                        cmd.Parameters.AddWithValue("@IsActive", isActive);
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                GridViewUsers.EditIndex = -1;
+                BindGridView();
+                lblMessage.Text = "User updated successfully!";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = "Error: " + ex.Message;
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        protected void GridViewUsers_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridViewUsers.EditIndex = -1;
+            BindGridView();
+        }
+    }
+}

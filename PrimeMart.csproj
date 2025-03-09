@@ -327,6 +327,7 @@
     </Compile>
     <Compile Include="Admin\ShowUser.aspx.cs">
       <DependentUpon>ShowUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\ShowUser.aspx.designer.cs">
       <DependentUpon>ShowUser.aspx</DependentUpon>

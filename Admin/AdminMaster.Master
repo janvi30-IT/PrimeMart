@@ -114,7 +114,7 @@
             <div class="menu-item">
                 <a href="#">👥 Customers</a>
                 <div class="submenu">
-                    <a href="ManageCustomers.aspx">🔧 Manage Customers</a>
+                    <a href="ShowUser.aspx">🔧 Manage Customers</a>
                 </div>
             </div>
             <div class="menu-item">
