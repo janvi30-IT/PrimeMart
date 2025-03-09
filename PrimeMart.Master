@@ -244,7 +244,7 @@
 
             <!-- Nav Options (Sign In, Cart, Notification) -->
        <div class="nav-options">
-            <a href="SignUp_form.aspx">Sign In / Register</a>
+            <a href="Signup.aspx">Sign In / Register</a>
             <a href="#"><i class="bi bi-bell"></i></a>
             <a href="#"><i class="bi bi-cart"></i></a>
             <span>₹0</span>

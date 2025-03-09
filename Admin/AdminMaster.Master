@@ -100,14 +100,14 @@
             <div class="menu-item">
                 <a href="#">📂 Categories</a>
                 <div class="submenu">
-                    <a href="ShowCategories.aspx">📜 Show Categories</a>
+                    <a href="ShowCtaegory.aspx">📜 Show Categories</a>
 <a href="Categories_form.aspx" target="mainFrame">➕ Add Categories</a>
                 </div>
             </div>
             <div class="menu-item">
                 <a href="#">🛍️ Products</a>
                 <div class="submenu">
-                    <a href="ShowProduct.aspx">📦 Show Products</a>
+                    <a href="showProductGrid.aspx">📦 Show Products</a>
                <a href="Product_Form.aspx" target="mainFrame">➕ Add Products</a>
                 </div>
             </div>

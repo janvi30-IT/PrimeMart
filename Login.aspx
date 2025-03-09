@@ -1,4 +1,62 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PrimeMart.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PrimeMart.WebForm2" %>
+﻿<%--<%@ Page Title="" Language="C#" MasterPageFile="~/PrimeMart.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PrimeMart.Login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <style>
+        /* Background and overlay */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/Images/toy-shopping-cart-with-boxes-credit-card-with-copy-space_339191-197.jpg') no-repeat center center/cover;
+            height: 100vh;
+            position: relative;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+
+        /* Login container */
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            width: 400px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+                 .form-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>--%>
+<%@ Page Title="" Language="C#" MasterPageFile="~/PrimeMart.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PrimeMart.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
  <style>
         /* Background and overlay */

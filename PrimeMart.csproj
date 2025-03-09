@@ -94,7 +94,9 @@
     <Content Include="Admin\AdminDashboard.aspx" />
     <Content Include="Admin\Categories_form.aspx" />
     <Content Include="Admin\Product_form.aspx" />
-    <Content Include="Admin\ShowProduct.aspx" />
+    <Content Include="Admin\ShowCtaegory.aspx" />
+    <Content Include="Admin\showProductGrid.aspx" />
+    <Content Include="Admin\ShowUser.aspx" />
     <Content Include="App_Data\PrimeMartDB.mdf" />
     <Content Include="App_Data\PrimeMartDB_log.ldf">
       <DependentUpon>PrimeMartDB.mdf</DependentUpon>
@@ -166,7 +168,9 @@
     <Content Include="Images\Carrot.jpg" />
     <Content Include="Images\chinese_cornor.jpg" />
     <Content Include="Images\cooker.jpg" />
+    <Content Include="Images\Dal-Fry-Recipe.jpg" />
     <Content Include="Images\dog_cat.jpg" />
+    <Content Include="Images\dry_fruite.jpg" />
     <Content Include="Images\fruitbasket.jpg" />
     <Content Include="Images\Grocery\CookingOil\CoconutOil.jpg" />
     <Content Include="Images\Grocery\CookingOil\GroundnutOil.jpg" />
@@ -245,6 +249,7 @@
     <Content Include="Kitchen.aspx" />
     <Content Include="KitchenAppliances.aspx" />
     <Content Include="LivingRoom.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Makeup.aspx" />
     <Content Include="Masala_Spices.aspx" />
     <Content Include="MensClothing.aspx" />
@@ -257,7 +262,7 @@
     <Content Include="Rice_Products.aspx" />
     <Content Include="RucksacksMore.aspx" />
     <Content Include="Salt_Sugar_Jaggery.aspx" />
-    <Content Include="SignUp_Form.aspx" />
+    <Content Include="Signup.aspx" />
     <Content Include="SkinCare.aspx" />
     <Content Include="Snacks_Farsans.aspx" />
     <Content Include="Stationery.aspx" />
@@ -265,7 +270,6 @@
     <Content Include="Utensil_Cleaners.aspx" />
     <Content Include="Vegetables.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Login.aspx" />
     <Content Include="Grocery.aspx" />
     <Content Include="Dal.aspx" />
     <Content Include="WomenFootwear.aspx" />
@@ -307,12 +311,25 @@
     <Compile Include="Admin\Product_form.aspx.designer.cs">
       <DependentUpon>Product_form.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ShowProduct.aspx.cs">
-      <DependentUpon>ShowProduct.aspx</DependentUpon>
+    <Compile Include="Admin\ShowCtaegory.aspx.cs">
+      <DependentUpon>ShowCtaegory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\ShowProduct.aspx.designer.cs">
-      <DependentUpon>ShowProduct.aspx</DependentUpon>
+    <Compile Include="Admin\ShowCtaegory.aspx.designer.cs">
+      <DependentUpon>ShowCtaegory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\showProductGrid.aspx.cs">
+      <DependentUpon>showProductGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\showProductGrid.aspx.designer.cs">
+      <DependentUpon>showProductGrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ShowUser.aspx.cs">
+      <DependentUpon>ShowUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ShowUser.aspx.designer.cs">
+      <DependentUpon>ShowUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Art_Craft.aspx.cs">
       <DependentUpon>Art_Craft.aspx</DependentUpon>
@@ -594,6 +611,13 @@
     <Compile Include="LivingRoom.aspx.designer.cs">
       <DependentUpon>LivingRoom.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Makeup.aspx.cs">
       <DependentUpon>Makeup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -680,19 +704,12 @@
     <Compile Include="Salt_Sugar_Jaggery.aspx.designer.cs">
       <DependentUpon>Salt_Sugar_Jaggery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SignUp_Form.aspx.cs">
-      <DependentUpon>SignUp_Form.aspx</DependentUpon>
+    <Compile Include="Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SignUp_Form.aspx.designer.cs">
-      <DependentUpon>SignUp_Form.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Grocery.aspx.cs">
       <DependentUpon>Grocery.aspx</DependentUpon>

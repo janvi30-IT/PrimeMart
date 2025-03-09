@@ -15,6 +15,15 @@ namespace PrimeMart.Admin
     {
 
         /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+
+        /// <summary>
         /// ddlCategory control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace PrimeMart.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+
+        /// <summary>
+        /// rfvCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCategory;
 
         /// <summary>
         /// txtProductName control.
@@ -33,6 +51,15 @@ namespace PrimeMart.Admin
         protected global::System.Web.UI.WebControls.TextBox txtProductName;
 
         /// <summary>
+        /// rfvProductName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductName;
+
+        /// <summary>
         /// txtPrice control.
         /// </summary>
         /// <remarks>
@@ -40,6 +67,24 @@ namespace PrimeMart.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
+
+        /// <summary>
+        /// rfvPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrice;
+
+        /// <summary>
+        /// cvPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvPrice;
 
         /// <summary>
         /// txtStock control.
@@ -51,6 +96,24 @@ namespace PrimeMart.Admin
         protected global::System.Web.UI.WebControls.TextBox txtStock;
 
         /// <summary>
+        /// rfvStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStock;
+
+        /// <summary>
+        /// cvStock control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cvStock;
+
+        /// <summary>
         /// txtDescription control.
         /// </summary>
         /// <remarks>
@@ -60,6 +123,15 @@ namespace PrimeMart.Admin
         protected global::System.Web.UI.WebControls.TextBox txtDescription;
 
         /// <summary>
+        /// rfvDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDescription;
+
+        /// <summary>
         /// fuProductImage control.
         /// </summary>
         /// <remarks>
@@ -67,6 +139,24 @@ namespace PrimeMart.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuProductImage;
+
+        /// <summary>
+        /// rfvImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvImage;
+
+        /// <summary>
+        /// cvFileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvFileUpload;
 
         /// <summary>
         /// btnSubmit control.

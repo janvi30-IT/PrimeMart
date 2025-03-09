@@ -11,7 +11,7 @@ namespace PrimeMart.Admin
 {
 
 
-    public partial class ShowProduct
+    public partial class ShowUser
     {
 
         /// <summary>
